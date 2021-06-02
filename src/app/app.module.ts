@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LoginComponent } from './pages/login/login.component';
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule
 
   ],
   providers: [],
