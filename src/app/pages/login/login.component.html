@@ -3,12 +3,12 @@
       <form>
         <h2>Login</h2>
         <mat-form-field class="full-width-input">
-          <input matInput placeholder="Login" name="login" [(ngModel)]="usuario.login" required>
+          <input matInput placeholder="Login" name="login" #login="ngModel" [(ngModel)]="usuario.login" required>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-          <input matInput type="Senha" placeholder="Password" name="senha" [(ngModel)]="usuario.senha" required>
+          <input matInput type="Senha" placeholder="Password" name="senha" #senha="ngModel" [(ngModel)]="usuario.senha" required>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="logar()">Login</button>
+        <button mat-raised-button color="primary" (click)="logar()" [disabled]="login.invalid || senha.invalid">Login</button>
       </form>
     </mat-card-content>
   </mat-card>
