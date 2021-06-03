@@ -25,6 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MenuComponent } from './pages/componentes/menu/menu.component';
 import { HeaderComponent } from './pages/componentes/header/header.component';
+import { HttpInterceptorModule } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { HeaderComponent } from './pages/componentes/header/header.component';
     MatOptionModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpInterceptorModule
 
   ],
   providers: [],

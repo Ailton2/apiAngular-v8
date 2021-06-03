@@ -1,0 +1,37 @@
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Injectable, NgModule } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class InterceptorService implements HttpInterceptor{
+
+  constructor() { }
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if(localStorage.getItem('token') !== null){
+        const token = localStorage.getItem('token') || '{}';
+
+        const tokenRequest = req.clone({
+          headers : req.headers.set('Authorization', token)
+        });
+        return next.handle(tokenRequest)
+    }else{
+        return next.handle(req);
+    }
+  }
+}
+
+@NgModule({
+  providers : [{
+    provide : HTTP_INTERCEPTORS,
+    useClass : InterceptorService,
+    multi : true,
+  },
+],
+})
+
+export class HttpInterceptorModule {
+  
+}
