@@ -22,7 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule} from '@angular/material/sidenav';
 import { MenuComponent } from './pages/componentes/menu/menu.component';
 import { HeaderComponent } from './pages/componentes/header/header.component';
 import { HttpInterceptorModule } from './services/interceptor.service';

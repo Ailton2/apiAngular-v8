@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
 
   logar(){
     this.serviceLogin.logar(this.usuario);
-
-    
   }
 
 }
