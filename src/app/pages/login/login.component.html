@@ -2,6 +2,7 @@
     <mat-card-content>
       <form>
         <h2>Login</h2>
+       {{token}}
         <mat-form-field class="full-width-input">
           <input matInput placeholder="Login" name="login" #login="ngModel" [(ngModel)]="usuario.login" required>
         </mat-form-field>

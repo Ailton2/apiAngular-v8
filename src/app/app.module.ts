@@ -20,12 +20,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginComponent } from './pages/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MenuComponent } from './pages/componentes/menu/menu.component';
 import { HeaderComponent } from './pages/componentes/header/header.component';
-import { HttpInterceptorModule } from './services/interceptor.service';
+import { InterceptorService } from './services/interceptor.service';
+import { UsuarioComponent } from './pages/componentes/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpInterceptorModule } from './services/interceptor.service';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +60,14 @@ import { HttpInterceptorModule } from './services/interceptor.service';
     MatProgressSpinnerModule,
     HttpClientModule,
     MatSidenavModule,
-    HttpInterceptorModule
+    
 
   ],
-  providers: [],
+  providers: [{
+    provide : HTTP_INTERCEPTORS,
+    useClass : InterceptorService,
+    multi : true,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,8 @@
 
     <ul>
         <li>Home</li>
-        <li> <a href="javascript:;" (click)="sair()">logout</a></li>
+        <li> <a  [routerLink]="['/usuario']" routerLinkActive="router-link-active">Usuarios</a></li>
+        <li> <a  (click)="sair()">logout</a></li>
     </ul>
 
 </div>
