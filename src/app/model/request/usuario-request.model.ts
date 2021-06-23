@@ -1,5 +1,4 @@
-export class User{
-    id : number;
+export class UsuarioRequest{
     login : string;
     nome: string;
     cpf: string;

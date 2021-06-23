@@ -1,32 +1,59 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="container">
+  <form>
+    <h2>Lista de Usuarios</h2>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+      <mat-form-field fxFlex="50" fxFlex.xs="100" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" name="nome" [(ngModel)]="usuariosRequest.nome">
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput type="text" name="login" [(ngModel)]="usuariosRequest.login">
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput type="text" name="senha" [(ngModel)]="usuariosRequest.senha">
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input matInput type="text" name="cpf" [(ngModel)]="usuariosRequest.cpf">
+      </mat-form-field>
+    </div>
+  </form>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+  <button matButton (click)="salvarUsuario()">Salvar</button>
+  <br>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+    <mat-form-field fxFlex="50" fxFlex.xs="100" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" name="nome" [(ngModel)]="usuariosRequest.nome">
+    </mat-form-field>
+    <button matButton (click)="buscarPorNome()">buscar</button>
+  </div>
+  <table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> nome </th>
-    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
-  </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Login </th>
-    <td mat-cell *matCellDef="let element"> {{element.login}} </td>
-  </ng-container>
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Login </th>
+      <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> CPF </th>
-    <td mat-cell *matCellDef="let element"> {{element.CPF}} </td>
-  </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element"><button matButton type="button"
+          (click)="deletaUsuario(element.id)">Excluir</button></td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

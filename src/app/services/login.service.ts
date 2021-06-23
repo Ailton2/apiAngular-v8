@@ -21,7 +21,7 @@ export class LoginService {
         localStorage.setItem("token", token);
 
         if (localStorage.getItem('token') != null) {
-          this.router.navigate(['home']);
+          this.router.navigate(['/home']);
         }
 
       },
