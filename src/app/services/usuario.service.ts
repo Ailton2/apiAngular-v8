@@ -35,4 +35,12 @@ export class UsuarioService {
   buscarPorId(id:number):Observable<any>{
       return this.http.get(this.urlUsuario+`/${id}`);
   }
+
+  userAutentication(){
+    if(localStorage.getItem("token") != null){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
