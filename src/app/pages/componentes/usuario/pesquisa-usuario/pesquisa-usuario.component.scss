@@ -1,0 +1,31 @@
+.container{
+    padding: 20px;
+}
+table{
+    width: 100%;
+}
+
+.btnBuscar{
+    flex-direction: row;
+    
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: transparent;
+}
+
+::ng-deep .mat-select-value {
+    color: #005999;
+      font-weight: bold;
+      font-size: 13px;
+}
+
+::ng-deep .mat-paginator-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+color: brown;}

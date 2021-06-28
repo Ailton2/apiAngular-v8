@@ -1,0 +1,27 @@
+<div class="container">
+  <form #ngForm="ngForm">
+    <h2>Cadastro de Usuarios</h2>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+      <mat-form-field fxFlex="50" fxFlex.xs="100" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" name="nome" [(ngModel)]="usuariosRequest.nome" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput type="text" name="login" [(ngModel)]="usuariosRequest.login" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput type="text" name="senha" [(ngModel)]="usuariosRequest.senha" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input matInput type="text" name="cpf" [(ngModel)]="usuariosRequest.cpf">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <button mat-raised-button (click)="salvarUsuario()" color="primary" [disabled]="ngForm.invalid">Salvar</button>
+  <button mat-raised-button routerLink="../pesquisa-usuario" color="primary">Pesquisar</button>
+
+</div>

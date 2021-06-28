@@ -17,6 +17,12 @@ import { HeaderComponent } from 'src/app/pages/componentes/header/header.compone
 import { MenuComponent } from 'src/app/pages/componentes/menu/menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDividerModule } from '@angular/material/divider';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -36,13 +42,23 @@ const primeNGComponents = [
   MatTableModule,
   MatSidenavModule,
   MatToolbarModule,
+  BrowserAnimationsModule,
+  MatDividerModule,
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatProgressSpinnerModule,
+  BrowserModule,
+  MatPaginatorModule
+
 ];
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+  
   ],
   imports: [
     CommonModule,

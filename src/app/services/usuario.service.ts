@@ -24,8 +24,15 @@ export class UsuarioService {
     return  this.http.post(this.urlUsuario,user)
   }
 
-  buscarPorNome(nome:string):Observable<any>{
+  putUsuario(user:any):Observable<any>{
+    return  this.http.post(this.urlUsuario,user)
+  }
 
+  buscarPorNome(nome:string):Observable<any>{
     return this.http.get(this.urlUsuario+"/nome?nome="+nome);
+  }
+
+  buscarPorId(id:number):Observable<any>{
+      return this.http.get(this.urlUsuario+`/${id}`);
   }
 }

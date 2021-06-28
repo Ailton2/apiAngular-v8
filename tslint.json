@@ -147,6 +147,12 @@
       "element",
       "app",
       "kebab-case"
+    ],
+    "no-import-side-effect": [
+      true,
+      {
+        "ignore-module": "(core-js/.*|zone\\.js/.*|@angular/localize/init)$"
+      }
     ]
   }
 }
