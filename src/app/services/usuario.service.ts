@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User } from '../model/user';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class UsuarioService {
 
   constructor(private http:HttpClient) { }
 
-  urlUsuario = 'http://localhost:8080/apirest/usuarios';
+  urlUsuario = environment.api_URL+ 'usuarios';
 
   getUsuarios():Observable<User>{
     return this.http.get<User>(this.urlUsuario)
@@ -43,4 +44,5 @@ export class UsuarioService {
       return false;
     }
   }
+
 }

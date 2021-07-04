@@ -12,6 +12,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class CadastroUsuarioComponent implements OnInit {
 
   usuariosRequest = new UsuarioRequest;
+  displayedColumns: string[] = ['id', 'nome'];
+  dataSource: any;
+
   constructor(private usuarioService: UsuarioService, private routerActive: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,13 +29,13 @@ export class CadastroUsuarioComponent implements OnInit {
       console.log("eidtar")
       this.usuarioService.putUsuario(this.usuariosRequest).subscribe(res => {
         this.usuariosRequest = new UsuarioRequest;
-        
+
       })
-    }else{
+    } else {
       console.log("salvar")
       this.usuarioService.postUsuario(this.usuariosRequest).subscribe(res => {
         this.usuariosRequest = new UsuarioRequest;
-     
+
       })
     }
 
@@ -42,6 +45,8 @@ export class CadastroUsuarioComponent implements OnInit {
   buscarPorId(id: any) {
     this.usuarioService.buscarPorId(id).subscribe(res => {
       this.usuariosRequest = res
+      this.dataSource = this.usuariosRequest.telefones
     })
   }
+
 }

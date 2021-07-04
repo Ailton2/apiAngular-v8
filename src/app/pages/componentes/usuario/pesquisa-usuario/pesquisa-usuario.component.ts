@@ -10,21 +10,18 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './pesquisa-usuario.component.html',
   styleUrls: ['./pesquisa-usuario.component.scss']
 })
-export class PesquisaUsuarioComponent implements OnInit{
+export class PesquisaUsuarioComponent implements OnInit {
 
-  user= new User();
+  user = new User();
   usuarios: MatTableDataSource<Observable<User[]>>;
   displayedColumns: string[] = ['id', 'name', 'weight', 'symbol'];
   retorno: any;
 
-  
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private usuarioService: UsuarioService) {
-
     this.listUsuarios()
-   
-    
   }
 
   listUsuarios() {
@@ -33,11 +30,9 @@ export class PesquisaUsuarioComponent implements OnInit{
       this.usuarios.paginator = this.paginator
       this.paginator._intl.itemsPerPageLabel = 'Itens por página'
       this.paginator._intl.firstPageLabel = 'Primeira página'
-      this.paginator._intl.lastPageLabel= 'Ultima página'
+      this.paginator._intl.lastPageLabel = 'Ultima página'
       this.paginator._intl.nextPageLabel = 'Proxima página'
       this.paginator._intl.previousPageLabel = 'página anterior'
-  
-      
     })
 
   }
@@ -47,17 +42,15 @@ export class PesquisaUsuarioComponent implements OnInit{
       this.retorno = res
       this.listUsuarios()
     })
-    
+
   }
   ngOnInit(): void {
   }
 
+  buscarPorNome() {
+    this.usuarioService.buscarPorNome(this.user.nome).subscribe(res => {
+      this.usuarios = res
 
-
-  buscarPorNome(){
-    this.usuarioService.buscarPorNome(this.user.nome).subscribe(res =>{
-      this.usuarios =res
-     
     })
   }
 
