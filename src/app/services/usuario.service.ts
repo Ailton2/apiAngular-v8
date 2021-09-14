@@ -22,11 +22,11 @@ export class UsuarioService {
   }
 
   postUsuario(user:any):Observable<any>{
-    return  this.http.post(this.urlUsuario,user)
+    return  this.http.post(this.urlUsuario,user, { responseType: 'text' })
   }
 
   putUsuario(user:any):Observable<any>{
-    return  this.http.post(this.urlUsuario,user)
+    return this.http.post(this.urlUsuario,user)
   }
 
   buscarPorNome(nome:string):Observable<any>{
@@ -35,6 +35,10 @@ export class UsuarioService {
 
   buscarPorId(id:number):Observable<any>{
       return this.http.get(this.urlUsuario+`/${id}`);
+  }
+
+  deletarTelefone(id: any):Observable<any>{
+    return this.http.delete(this.urlUsuario+`/fone/${id}`);
   }
 
   userAutentication(){

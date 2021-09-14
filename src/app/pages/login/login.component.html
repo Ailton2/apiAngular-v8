@@ -1,15 +1,18 @@
-<mat-card>
-    <mat-card-content>
+<div class="content">
+  <mat-card>
       <form>
         <h2>Login</h2>
-       {{token}}
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Login</mat-label>
           <input matInput placeholder="Login" name="login" #login="ngModel" [(ngModel)]="usuario.login" required>
         </mat-form-field>
-        <mat-form-field>
-          <input matInput type="Senha" placeholder="Password" name="senha" #senha="ngModel" [(ngModel)]="usuario.senha" required>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput placeholder="Password" type="password" name="senha" #senha="ngModel"
+            [(ngModel)]="usuario.senha" required>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="logar()" [disabled]="login.invalid || senha.invalid">Login</button>
+        <button mat-raised-button color="white" (click)="logar()"
+          [disabled]="login.invalid || senha.invalid">Entrar</button>
       </form>
-    </mat-card-content>
   </mat-card>
+</div>

@@ -6,7 +6,7 @@
   <app-menu></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -16,6 +16,9 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>apiAngular</span>
+      <div class="user">
+        Usuário: {{usuarioLogado}}
+      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

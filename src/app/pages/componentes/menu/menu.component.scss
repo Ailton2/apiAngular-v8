@@ -8,15 +8,16 @@
     flex-direction: column;
 }
 .menu ul{
-    padding-top: 40px;
+    padding-top: 50px;
     color: #fff;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .menu ul li{
     list-style: none;
-    padding: 6px;
+    padding-top: 6px;
     
 }
 

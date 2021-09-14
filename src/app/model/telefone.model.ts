@@ -1,4 +1,4 @@
-export class Telefone{
-id: number;
-numero: string;
+export class Telefone {
+    id: Number;
+    numero: String;
 }

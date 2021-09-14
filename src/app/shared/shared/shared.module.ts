@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -49,7 +50,8 @@ const primeNGComponents = [
   MatOptionModule,
   MatProgressSpinnerModule,
   BrowserModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDialogModule
 
 ];
 

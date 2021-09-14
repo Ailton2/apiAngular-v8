@@ -13,6 +13,14 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  navigate() {
+    this.router.navigate(['home/pesquisa-usuario'], {skipLocationChange: true});
+  }
+
+  goHome(){
+    this.router.navigate(['home/index'], {skipLocationChange: true});
+  }
+
   public sair(){
     localStorage.clear()
     this.router.navigate(['login']);

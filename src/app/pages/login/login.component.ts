@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Route, Router, RouterModule } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -11,12 +10,11 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
 
   usuario = {login:'',senha:''}
-  token = localStorage.getItem('token')
+
   constructor(private serviceLogin:LoginService,private router:Router) {
     if(localStorage.getItem('token') !== null){
       localStorage.clear();
     }
-      
   }
   
 

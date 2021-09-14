@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Observable, Subject } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pesquisa-usuario',
@@ -20,7 +21,8 @@ export class PesquisaUsuarioComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private usuarioService: UsuarioService) {
+  constructor(private usuarioService: UsuarioService,
+    public router: Router) {
     this.listUsuarios()
   }
 
@@ -54,5 +56,12 @@ export class PesquisaUsuarioComponent implements OnInit {
     })
   }
 
+  navigate() {
+    this.router.navigate(['home/cadastro-usuario'], {skipLocationChange: true});
+  }
+
+  navigateEdit(id: any){
+    this.router.navigate(['home/cadastro-usuario/'+id], {skipLocationChange: true});
+  }
 }
 

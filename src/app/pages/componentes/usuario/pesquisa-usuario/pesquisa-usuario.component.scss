@@ -9,7 +9,7 @@
 }
 
 .btnBuscar{
-    flex-direction: row;
+    padding-top: 12px;
     
 }
 
@@ -31,7 +31,7 @@
     padding: 0 8px;
     flex-wrap: wrap-reverse;
     width: 100%;
-    color: brown;
+    color: #005999;
 }
 
 // By default, the mobile label shouldn't show
@@ -70,3 +70,8 @@
     }
 
   }
+
+  button{
+    background-color:#0054b8;
+    color: white;
+}

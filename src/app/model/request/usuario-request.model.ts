@@ -6,5 +6,5 @@ export class UsuarioRequest{
     nome: string;
     cpf: string;
     senha: string;
-    telefones: Telefone[];
+    telefones: Array<Telefone>;
 }
