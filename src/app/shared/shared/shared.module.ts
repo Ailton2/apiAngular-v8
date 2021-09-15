@@ -24,8 +24,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-
-
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 const primeNGComponents = [
   HttpClientModule,
@@ -51,7 +50,9 @@ const primeNGComponents = [
   MatProgressSpinnerModule,
   BrowserModule,
   MatPaginatorModule,
-  MatDialogModule
+  MatDialogModule,
+  NgxMaskModule
+  
 
 ];
 

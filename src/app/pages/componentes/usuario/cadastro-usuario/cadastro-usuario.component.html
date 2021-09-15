@@ -16,7 +16,7 @@
       </mat-form-field>
       <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
         <mat-label>CPF</mat-label>
-        <input matInput type="text" name="cpf" [(ngModel)]="usuariosRequest.cpf">
+        <input matInput mask="000.000.000-00" type="text" name="cpf" [(ngModel)]="usuariosRequest.cpf">
       </mat-form-field>
     </div>
 
@@ -27,7 +27,7 @@
     <div fxLayout="row">
       <mat-form-field appearance="outline">
         <mat-label>Telefone</mat-label>
-        <input matInput type="text" [(ngModel)]="telefone.numero" name="numero" id="numero">
+        <input matInput mask="(00) 00000-0000" type="text" [(ngModel)]="telefone.numero" name="numero" id="numero">
       </mat-form-field>
 
        <div class="btnAdd">
@@ -46,7 +46,7 @@
   
       <ng-container matColumnDef="numero">
         <th mat-header-cell *matHeaderCellDef> Número </th>
-        <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.numero | mask: '(00) 00000-0000' }} </td>
       </ng-container>
   
       <ng-container matColumnDef="acao">
