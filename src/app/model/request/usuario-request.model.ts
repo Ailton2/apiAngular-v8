@@ -1,3 +1,4 @@
+import { Profissao } from "../profissao.model";
 import { Telefone } from "../telefone.model";
 
 export class UsuarioRequest{
@@ -7,4 +8,6 @@ export class UsuarioRequest{
     cpf: string;
     senha: string;
     telefones: Array<Telefone>;
+    data_nascimento: Date;
+    profissao: number;
 }

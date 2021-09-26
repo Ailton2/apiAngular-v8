@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
-import { MatOptionModule, MatPseudoCheckboxModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule, MatPseudoCheckboxModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
@@ -24,7 +24,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 const primeNGComponents = [
   HttpClientModule,
@@ -51,7 +52,10 @@ const primeNGComponents = [
   BrowserModule,
   MatPaginatorModule,
   MatDialogModule,
-  NgxMaskModule
+  NgxMaskModule,
+  MatDatepickerModule,
+  MatNativeDateModule 
+
   
 
 ];
@@ -72,6 +76,9 @@ const primeNGComponents = [
     HeaderComponent,
     MenuComponent,
    ...primeNGComponents
+ ],
+ providers: [
+  MatDatepickerModule
  ]
 
 })

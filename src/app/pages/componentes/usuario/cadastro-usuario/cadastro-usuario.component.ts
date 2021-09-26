@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
+import { Profissao } from 'src/app/model/profissao.model';
 import { UsuarioRequest } from 'src/app/model/request/usuario-request.model';
 import { Telefone } from 'src/app/model/telefone.model';
 import { User } from 'src/app/model/user';
@@ -21,6 +23,9 @@ export class CadastroUsuarioComponent implements OnInit {
   novaDataSourc: any;
   telefone = new Telefone();
   telefones: any;
+  profissoes: Array<Profissao>;
+  profissaoSelecionada: any;
+
 
   constructor(private usuarioService: UsuarioService,
     private routerActive: ActivatedRoute,
@@ -30,6 +35,10 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.usuarioService.listProfissoes().subscribe(p =>{
+      this.profissoes = p
+    } );
+    
     let id = this.routerActive.snapshot.paramMap.get('id');
     if (id != null) {
       this.buscarPorId(id);
@@ -38,6 +47,8 @@ export class CadastroUsuarioComponent implements OnInit {
 
   salvarUsuario() {
     if (this.usuariosRequest.id != null) {
+    //  alert(this.usuariosRequest.profissao)
+      const ddate = new Date(this.usuariosRequest.data_nascimento).getTime()
       this.usuarioService.putUsuario(this.usuariosRequest).subscribe(res => {
         this.usuariosRequest = new UsuarioRequest;
         this.dataSource = null;
@@ -54,6 +65,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   buscarPorId(id: any) {
     this.usuarioService.buscarPorId(id).subscribe(res => {
+      console.log(res)
       this.usuariosRequest = res;
       this.dataSource = this.usuariosRequest.telefones
     })
@@ -61,7 +73,6 @@ export class CadastroUsuarioComponent implements OnInit {
 
   deletarTel(id: any, i: any) {
     if (id == null) {
-      alert(i)
       this.usuariosRequest.telefones.splice(i,1);
       this.novaDataSourc = this.usuariosRequest.telefones;
       this.dataSource = new MatTableDataSource<Element>(this.novaDataSourc);

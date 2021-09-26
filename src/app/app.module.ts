@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +17,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ToastrModule } from 'ngx-toastr';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -39,6 +45,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatPaginatorModule,
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(options),
     
@@ -48,7 +55,10 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     provide : HTTP_INTERCEPTORS,
     useClass : InterceptorService,
     multi : true,
-  },],
+  },
+  { provide: LOCALE_ID, useValue: 'pt'}
+  
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

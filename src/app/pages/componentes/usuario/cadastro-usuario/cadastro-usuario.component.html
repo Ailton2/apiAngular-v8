@@ -18,11 +18,27 @@
         <mat-label>CPF</mat-label>
         <input matInput mask="000.000.000-00" type="text" name="cpf" [(ngModel)]="usuariosRequest.cpf">
       </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+        <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+          <mat-label>Data De Nascimento</mat-label>
+          <input matInput name="data_nascimento" [(ngModel)]="usuariosRequest.data_nascimento" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+      <mat-form-field  appearance="outline">
+          <mat-label>Profissão</mat-label>
+          <mat-select [(ngModel)]="usuariosRequest.profissao" name="profissao" id="profissao">
+            <mat-option [value]="profissao.id" *ngFor="let profissao of profissoes">
+              {{profissao.descricao}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> 
+     
     </div>
 
-
   </form>
-
   <mat-card >
     <div fxLayout="row">
       <mat-form-field appearance="outline">

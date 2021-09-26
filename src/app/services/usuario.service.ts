@@ -13,6 +13,8 @@ export class UsuarioService {
 
   urlUsuario = environment.api_URL+ 'usuarios';
 
+  urlProfissao = 'http://localhost:8080/apirest/profissao/list';
+
   getUsuarios():Observable<User>{
     return this.http.get<User>(this.urlUsuario)
   }
@@ -39,6 +41,10 @@ export class UsuarioService {
 
   deletarTelefone(id: any):Observable<any>{
     return this.http.delete(this.urlUsuario+`/fone/${id}`);
+  }
+
+  listProfissoes():Observable<any>{
+    return this.http.get(this.urlProfissao);
   }
 
   userAutentication(){

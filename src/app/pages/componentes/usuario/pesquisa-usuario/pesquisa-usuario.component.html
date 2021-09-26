@@ -48,7 +48,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" skip_previous="voltar" showFirstLastButtons></mat-paginator>
     <br>
     <button mat-raised-button (click)="navigate()">Novo</button>
 </div>

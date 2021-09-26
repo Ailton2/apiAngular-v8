@@ -6,5 +6,7 @@ export class User{
     nome: string;
     cpf: string;
     senha: string;
+    data_nascimento: Date;
     telefones: Array<Telefone>;
+    profissao: number;
 }
