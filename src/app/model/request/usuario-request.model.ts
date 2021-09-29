@@ -10,4 +10,6 @@ export class UsuarioRequest{
     telefones: Array<Telefone>;
     data_nascimento: Date;
     profissao: number;
+    salario: number;
+    email: string;
 }

@@ -1,7 +1,5 @@
-.example-spacer {
-    flex: 1 1 auto;
-}
-
 .container{
- background-color: #0054b8;
+    display: flex;
+    justify-content: end;
+ padding: 20px;
 }

@@ -26,6 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { NgxCurrencyModule } from "ngx-currency";
 
 const primeNGComponents = [
   HttpClientModule,
@@ -54,9 +55,8 @@ const primeNGComponents = [
   MatDialogModule,
   NgxMaskModule,
   MatDatepickerModule,
-  MatNativeDateModule 
-
-  
+  MatNativeDateModule,
+  NgxCurrencyModule 
 
 ];
 

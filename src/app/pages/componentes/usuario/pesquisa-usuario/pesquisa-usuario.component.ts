@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Router } from '@angular/router';
+import { ObservableService } from 'src/app/services/observable.service';
 
 @Component({
   selector: 'app-pesquisa-usuario',
@@ -21,7 +22,7 @@ export class PesquisaUsuarioComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private usuarioService: UsuarioService,
+  constructor(private usuarioService: UsuarioService,private observableservice: ObservableService,
     public router: Router) {
     this.listUsuarios()
   }
@@ -47,6 +48,9 @@ export class PesquisaUsuarioComponent implements OnInit {
 
   }
   ngOnInit(): void {
+   this.observableservice.getUserList().subscribe((u: any) =>{
+     this.usuarios = u
+   })
   }
 
   buscarPorNome() {

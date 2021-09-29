@@ -13,6 +13,7 @@
         </mat-form-field>
         <button mat-raised-button color="white" (click)="logar()"
           [disabled]="login.invalid || senha.invalid">Entrar</button>
+          <button [disabled]="login.invalid" mat-raised-button color="white" (click)="recuperar()">Recuperar senha</button>
       </form>
   </mat-card>
 </div>

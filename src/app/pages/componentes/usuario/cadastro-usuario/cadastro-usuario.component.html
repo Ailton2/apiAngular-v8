@@ -11,6 +11,10 @@
         <input matInput type="text" name="login" [(ngModel)]="usuariosRequest.login">
       </mat-form-field>
       <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="text" name="email" [(ngModel)]="usuariosRequest.email">
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
         <mat-label>Senha</mat-label>
         <input matInput type="text" name="senha" [(ngModel)]="usuariosRequest.senha">
       </mat-form-field>
@@ -35,6 +39,12 @@
             </mat-option>
           </mat-select>
         </mat-form-field> 
+
+        <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+          <mat-label>Salário</mat-label>
+          <input currencyMask matInput type="text" name="salario" [(ngModel)]="usuariosRequest.salario"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+        </mat-form-field>
      
     </div>
 

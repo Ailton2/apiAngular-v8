@@ -9,6 +9,7 @@ import { User } from '../model/user';
 })
 export class UsuarioService {
 
+
   constructor(private http:HttpClient) { }
 
   urlUsuario = environment.api_URL+ 'usuarios';
