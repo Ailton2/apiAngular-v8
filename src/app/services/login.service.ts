@@ -40,14 +40,11 @@ export class LoginService {
         if (localStorage.getItem('token') != null) {
           this.router.navigate(['/home']);
         }
-
       },
         error => {
           console.error('Erro ao fazer Login')
         }
-
       )
-
   }
 
 

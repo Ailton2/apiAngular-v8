@@ -10,6 +10,7 @@ import { Telefone } from 'src/app/model/telefone.model';
 import { User } from 'src/app/model/user';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',
@@ -25,6 +26,7 @@ export class CadastroUsuarioComponent implements OnInit {
   telefones: any;
   profissoes: Array<Profissao>;
   profissaoSelecionada: any;
+  dataTeste: Date;
 
 
   constructor(private usuarioService: UsuarioService,
@@ -47,8 +49,6 @@ export class CadastroUsuarioComponent implements OnInit {
 
   salvarUsuario() {
     if (this.usuariosRequest.id != null) {
-    //  alert(this.usuariosRequest.profissao)
-      const ddate = new Date(this.usuariosRequest.data_nascimento).getTime()
       this.usuarioService.putUsuario(this.usuariosRequest).subscribe(res => {
         this.usuariosRequest = new UsuarioRequest;
         this.dataSource = null;
@@ -104,4 +104,8 @@ export class CadastroUsuarioComponent implements OnInit {
     this.router.navigate(['home/pesquisa-usuario'], {skipLocationChange: true});
   }
 
+  mostrar(){
+    let data = new Date(this.dataTeste)
+    alert(data)
+  }
 }

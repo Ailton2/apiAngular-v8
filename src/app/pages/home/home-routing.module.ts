@@ -17,8 +17,7 @@ const routes: Routes = [
             { path: 'pesquisa-usuario', component: PesquisaUsuarioComponent, canActivate: [GuardiaoGuard]},
             { path: 'cadastro-usuario', component: CadastroUsuarioComponent,canActivate: [GuardiaoGuard] },
             { path: 'cadastro-usuario/:id', component: CadastroUsuarioComponent, canActivate: [GuardiaoGuard]},
-            
-            
+             
         ]
     }
 
