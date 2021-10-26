@@ -67,5 +67,11 @@ export class PesquisaUsuarioComponent implements OnInit {
   navigateEdit(id: any){
     this.router.navigate(['home/cadastro-usuario/'+id], {skipLocationChange: true});
   }
+
+  imprimirPDF(){
+    this.usuarioService.downloadPdf().subscribe((res: any) =>{
+      fetch(res).then(res => res.blob()).then(res => window.open(URL.createObjectURL(res), '_blank'));
+    })
+  }
 }
 

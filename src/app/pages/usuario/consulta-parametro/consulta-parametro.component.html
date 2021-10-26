@@ -1,0 +1,19 @@
+<div class="container-consulta-params">
+  <div>Consulta de usuarios por data de nascimento</div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+        <mat-label>Data De Inicio</mat-label>
+        <input matInput name="dataInicio" [(ngModel)]="requesParams.dataInicio" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+          <mat-label>Data Fim</mat-label>
+          <input matInput name="dataFim" [(ngModel)]="requesParams.dataFim" [matDatepicker]="picker2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+  </div>
+
+  <button  mat-raised-button (click)="imprimeRelatorio()" color="primary">Consultar</button>
+</div>

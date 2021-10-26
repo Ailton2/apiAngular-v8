@@ -105,7 +105,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   mostrar(){
-    let data = new Date(this.dataTeste)
+    let data = new Date(this.usuariosRequest.data_nascimento)
     alert(data)
   }
 }

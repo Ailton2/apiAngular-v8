@@ -12,7 +12,7 @@ export class UsuarioService {
 
   constructor(private http:HttpClient) { }
 
-  urlUsuario = environment.api_URL+ 'usuarios';
+  urlUsuario = environment.api_URL+ 'usuario';
 
   urlProfissao = 'http://localhost:8080/apirest/profissao/list';
 
@@ -46,6 +46,14 @@ export class UsuarioService {
 
   listProfissoes():Observable<any>{
     return this.http.get(this.urlProfissao);
+  }
+
+  downloadPdf():Observable<any>{
+   return this.http.get(this.urlUsuario+`/relatorio`, { responseType: 'text'});
+  }
+
+  downloadPdfPorParams(dataInicio: string, dataFim: string):Observable<any>{
+    return this.http.get(this.urlUsuario+`/relatorio/params?dataInicio=${dataInicio}&dataFim=${dataFim}`, { responseType: 'text'});
   }
 
   userAutentication(){
