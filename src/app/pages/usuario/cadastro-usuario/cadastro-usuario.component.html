@@ -1,92 +1,102 @@
 <div class="container">
-  <form #ngForm="ngForm">
-    <h2>Cadastro de Usuarios</h2>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
-      <mat-form-field fxFlex="50" fxFlex.xs="100" appearance="outline">
-        <mat-label>Nome</mat-label>
-        <input matInput type="text" name="nome" [(ngModel)]="usuariosRequest.nome" required>
-      </mat-form-field>
-      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
-        <mat-label>Login</mat-label>
-        <input matInput type="text" name="login" [(ngModel)]="usuariosRequest.login">
-      </mat-form-field>
-      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
-        <mat-label>E-mail</mat-label>
-        <input matInput type="text" name="email" [(ngModel)]="usuariosRequest.email">
-      </mat-form-field>
-      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
-        <mat-label>Senha</mat-label>
-        <input matInput type="text" name="senha" [(ngModel)]="usuariosRequest.senha">
-      </mat-form-field>
-      <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
-        <mat-label>CPF</mat-label>
-        <input matInput mask="000.000.000-00" type="text" name="cpf" [(ngModel)]="usuariosRequest.cpf">
-      </mat-form-field>
-      </div>
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
-        <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
-          <mat-label>Data De Nascimento</mat-label>
-          <input matInput name="data_nascimento" [(ngModel)]="usuariosRequest.data_nascimento" [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-  
-      <mat-form-field  appearance="outline">
-          <mat-label>Profissão</mat-label>
-          <mat-select [(ngModel)]="usuariosRequest.profissao" name="profissao" id="profissao">
-            <mat-option [value]="profissao.id" *ngFor="let profissao of profissoes">
-              {{profissao.descricao}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field> 
-
-        <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
-          <mat-label>Salário</mat-label>
-          <input currencyMask matInput type="text" name="salario" [(ngModel)]="usuariosRequest.salario"
-          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
-        </mat-form-field>
-     
-    </div>
-
-  </form>
-  <mat-card >
-    <div fxLayout="row">
-      <mat-form-field appearance="outline">
-        <mat-label>Telefone</mat-label>
-        <input matInput mask="(00) 00000-0000" type="text" [(ngModel)]="telefone.numero" name="numero" id="numero">
-      </mat-form-field>
-
-       <div class="btnAdd">
-         <button mat-raised-button (click)="addTel()">Adicionar</button>
-       </div>
+  <h2>Cadastro de Usuarios</h2>
+  <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
+    <mat-tab label="Dados">
+      <form #ngForm="ngForm">
+   
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+          <mat-form-field fxFlex="50" fxFlex.xs="100" appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" name="nome" [(ngModel)]="usuariosRequest.nome" required>
+          </mat-form-field>
+          <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+            <mat-label>Login</mat-label>
+            <input matInput type="text" name="login" [(ngModel)]="usuariosRequest.login">
+          </mat-form-field>
+          <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="text" name="email" [(ngModel)]="usuariosRequest.email">
+          </mat-form-field>
+          <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="text" name="senha" [(ngModel)]="usuariosRequest.senha">
+          </mat-form-field>
+          <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput mask="000.000.000-00" type="text" name="cpf" [(ngModel)]="usuariosRequest.cpf">
+          </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+            <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+              <mat-label>Data De Nascimento</mat-label>
+              <input matInput name="data_nascimento" [(ngModel)]="usuariosRequest.data_nascimento" [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
       
-    </div>
+          <mat-form-field  appearance="outline">
+              <mat-label>Profissão</mat-label>
+              <mat-select [(ngModel)]="usuariosRequest.profissao" name="profissao" id="profissao">
+                <mat-option [value]="profissao.id" *ngFor="let profissao of profissoes">
+                  {{profissao.descricao}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field> 
+    
+            <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
+              <mat-label>Salário</mat-label>
+              <input currencyMask matInput type="text" name="salario" [(ngModel)]="usuariosRequest.salario"
+              [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+            </mat-form-field>
+         
+        </div>
+    
+      </form>
 
-    <div  fxLayout="column">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
+    </mat-tab>
+    <mat-tab label="Contato">
+      <mat-card >
+        <div fxLayout="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input matInput mask="(00) 00000-0000" type="text" [(ngModel)]="telefone.numero" name="numero" id="numero">
+          </mat-form-field>
+    
+           <div class="btnAdd">
+             <button mat-raised-button (click)="addTel()">Adicionar</button>
+           </div>
+          
+        </div>
+    
+        <div  fxLayout="column">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="numero">
+            <th mat-header-cell *matHeaderCellDef> Número </th>
+            <td mat-cell *matCellDef="let element"> {{element.numero | mask: '(00) 00000-0000' }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="acao">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <th mat-cell *matCellDef="let element; let i = index;"><button mat-raised-button 
+                (click)="deletarTel(element.id,i)">Deletar</button></th>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        </div>
+    
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
   
-      <ng-container matColumnDef="numero">
-        <th mat-header-cell *matHeaderCellDef> Número </th>
-        <td mat-cell *matCellDef="let element"> {{element.numero | mask: '(00) 00000-0000' }} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="acao">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <th mat-cell *matCellDef="let element; let i = index;"><button mat-raised-button 
-            (click)="deletarTel(element.id,i)">Deletar</button></th>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    </div>
-
-  </mat-card>
 
 
  

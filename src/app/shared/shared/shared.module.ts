@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { NgxCurrencyModule } from "ngx-currency";
+import { MatTabsModule } from '@angular/material/tabs';
 
 const primeNGComponents = [
   HttpClientModule,
@@ -56,7 +57,8 @@ const primeNGComponents = [
   NgxMaskModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  NgxCurrencyModule 
+  NgxCurrencyModule ,
+  MatTabsModule
 
 ];
 

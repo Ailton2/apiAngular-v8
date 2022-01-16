@@ -12,7 +12,7 @@ export class UsuarioService {
 
   constructor(private http:HttpClient) { }
 
-  urlUsuario = environment.api_URL+ 'usuario';
+  urlUsuario = environment.api_URL+ 'apirest/usuario';
 
   urlProfissao = 'http://localhost:8080/apirest/profissao/list';
 
