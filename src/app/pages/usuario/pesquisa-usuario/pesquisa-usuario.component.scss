@@ -4,13 +4,29 @@
 
 
 .mat-table {
-    overflow: auto;
-    max-height: auto;
+
+    width: 100%;
+}
+
+.mat-header-cell{
+  font-size: 14px;
+  font-weight: 600;
+}
+.mat-cell{
+  font-size: 12px;
+}
+
+.mat-row:nth-child(even){
+  background-color: #F2F8FF;
+}
+
+.mat-row:hover {
+  background-color: #E5E5E5;
 }
 
 .btnBuscar{
     padding-top: 12px;
-    
+
 }
 
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
@@ -38,7 +54,7 @@
 .mobile-label {
     display: none;
   }
-  
+
   @media(max-width: 600px) {
     // Custom header label that shows in each column, with a set width and bold font
     .mobile-label {
@@ -46,15 +62,15 @@
       display: inline-block;
       font-weight: bold;
     }
-  
+
     // Remove the header row altogether
     .mat-header-row {
       display: none;
     }
-  
+
     // The row cells should display as a column, justified left, with a bit of extra padding
-    .mat-row { 
-      
+    .mat-row {
+
       flex-direction: column;
       align-items: start;
       padding: 4px 14px;
@@ -64,9 +80,9 @@
     }
 
     .mat-row::after, .mat-header-row::after, .mat-footer-row::after {
-        display: inline-block; 
-        min-height: min-content; 
-        content: ""; 
+        display: inline-block;
+        min-height: min-content;
+        content: "";
     }
 
   }

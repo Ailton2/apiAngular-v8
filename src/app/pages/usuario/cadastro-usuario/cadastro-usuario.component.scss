@@ -5,7 +5,7 @@
 
 a{
     color: #fff;
- 
+
 }
 
 a:hover{
@@ -15,6 +15,22 @@ a:hover{
 
 table{
     width: 300px;
+}
+
+.mat-header-cell{
+  font-size: 14px;
+  font-weight: 600;
+}
+.mat-cell{
+  font-size: 12px;
+}
+
+.mat-row:nth-child(even){
+  background-color: #F2F8FF;
+}
+
+.mat-row:hover {
+  background-color: #E5E5E5;
 }
 
 button{

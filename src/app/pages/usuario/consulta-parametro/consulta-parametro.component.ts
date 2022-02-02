@@ -23,10 +23,7 @@ requesParams = new Params();
   imprimeRelatorio(){
     const dataini = new Date(this.requesParams.dataInicio).toLocaleDateString();
     const dataf = new Date(this.requesParams.dataFim).toLocaleDateString();
-    console.log(dataini)
-    console.log(dataf)
     this.services.downloadPdfPorParams(dataini, dataf).subscribe((res: any) =>{
-      console.log(res)
       fetch(res).then(res => res.blob()).then(res => window.open(URL.createObjectURL(res), '_blank'));
     })
   }
