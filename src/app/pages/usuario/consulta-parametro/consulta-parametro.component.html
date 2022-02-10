@@ -1,19 +1,21 @@
 <div class="container-consulta-params">
+  <form [formGroup]="form" autocomplete="off">
   <div>Consulta de usuarios por data de nascimento</div>
   <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
       <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
         <mat-label>Data De Inicio</mat-label>
-        <input matInput name="dataInicio" [(ngModel)]="requesParams.dataInicio" [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <input matInput (keypress)="maskDate($event)" maxlength="10" id="dataInicio" formControlName="dataInicio" [matDatepicker]="dataInicio">
+        <mat-datepicker-toggle matSuffix [for]="dataInicio" dateOnly></mat-datepicker-toggle>
+        <mat-datepicker #dataInicio></mat-datepicker>
       </mat-form-field>
       <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
           <mat-label>Data Fim</mat-label>
-          <input matInput name="dataFim" [(ngModel)]="requesParams.dataFim" [matDatepicker]="picker2">
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
+          <input matInput (keypress)="maskDate($event)" id="dataFinal" formControlName="dataFinal"
+           [matDatepicker]="dataFinal" maxlength="10">
+          <mat-datepicker-toggle matSuffix [for]="dataFinal"></mat-datepicker-toggle>
+          <mat-datepicker #dataFinal></mat-datepicker>
         </mat-form-field>
   </div>
-
+</form>
   <button  mat-raised-button (click)="imprimeRelatorio()" color="primary">Consultar</button>
 </div>

@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule, MatOptionModule, MatPseudoCheckboxModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
@@ -67,16 +67,18 @@ const primeNGComponents = [
   declarations: [
     HeaderComponent,
     MenuComponent,
-  
+
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ...primeNGComponents 
+    ReactiveFormsModule,
+    ...primeNGComponents
   ],
   exports:[
     HeaderComponent,
     MenuComponent,
+    ReactiveFormsModule,
    ...primeNGComponents
  ],
  providers: [

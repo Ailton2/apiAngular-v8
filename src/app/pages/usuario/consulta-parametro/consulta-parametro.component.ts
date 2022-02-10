@@ -1,5 +1,7 @@
+import { DateUtil } from './../../../shared/utils/date.utils';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 export class Params{
   dataInicio: string;
@@ -14,10 +16,19 @@ export class Params{
 export class ConsultaParametroComponent implements OnInit {
 
 requesParams = new Params();
+form : FormGroup;
 
-  constructor(private services: UsuarioService) { }
+  constructor(private services: UsuarioService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.iniciarFormulario();
+  }
+
+  iniciarFormulario(){
+    this.form = this.formBuilder.group({
+      dataInicio: [''],
+      dataFinal: ['']
+    })
   }
 
   imprimeRelatorio(){
@@ -27,4 +38,9 @@ requesParams = new Params();
       fetch(res).then(res => res.blob()).then(res => window.open(URL.createObjectURL(res), '_blank'));
     })
   }
+
+  maskDate(value:any) {
+      DateUtil.maskDate(value);
+  }
+
 }
