@@ -10,10 +10,10 @@
       </mat-form-field>
       <mat-form-field fxFlex="20" fxFlex.xs="100" appearance="outline">
           <mat-label>Data Fim</mat-label>
-          <input matInput (keypress)="maskDate($event)" id="dataFinal" formControlName="dataFinal"
-           [matDatepicker]="dataFinal" maxlength="10">
-          <mat-datepicker-toggle matSuffix [for]="dataFinal"></mat-datepicker-toggle>
-          <mat-datepicker #dataFinal></mat-datepicker>
+          <input matInput (keypress)="maskDate($event)" id="dataFim" formControlName="dataFim"
+           [matDatepicker]="dataFim" maxlength="10">
+          <mat-datepicker-toggle matSuffix [for]="dataFim"></mat-datepicker-toggle>
+          <mat-datepicker #dataFim></mat-datepicker>
         </mat-form-field>
   </div>
 </form>

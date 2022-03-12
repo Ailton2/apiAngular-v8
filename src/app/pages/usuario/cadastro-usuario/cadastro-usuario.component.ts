@@ -26,6 +26,8 @@ export class CadastroUsuarioComponent implements OnInit {
   profissoes: Array<Profissao>;
   profissaoSelecionada: any;
 
+  maskTel = '(00) 00000-0000'
+
   constructor(
     private usuarioService: UsuarioService,
     private routerActive: ActivatedRoute,
@@ -111,4 +113,6 @@ export class CadastroUsuarioComponent implements OnInit {
     console.log("index => ", tabChangeEvent.index);
     localStorage.setItem("Usuario", JSON.stringify(this.usuariosRequest));
   };
+
+
 }

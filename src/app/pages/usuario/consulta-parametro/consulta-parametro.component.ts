@@ -2,6 +2,7 @@ import { DateUtil } from './../../../shared/utils/date.utils';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import * as moment from 'moment';
 
 export class Params{
   dataInicio: string;
@@ -27,14 +28,15 @@ form : FormGroup;
   iniciarFormulario(){
     this.form = this.formBuilder.group({
       dataInicio: [''],
-      dataFinal: ['']
+      dataFim: ['']
     })
   }
 
   imprimeRelatorio(){
-    const dataini = new Date(this.requesParams.dataInicio).toLocaleDateString();
-    const dataf = new Date(this.requesParams.dataFim).toLocaleDateString();
-    this.services.downloadPdfPorParams(dataini, dataf).subscribe((res: any) =>{
+
+    const datainicio = moment(this.form.get('dataInicio')?.value).format('DD/MM/YYYY');
+    const datafim = moment(this.form.get('dataFim')?.value).format('DD/MM/YYYY');
+    this.services.downloadPdfPorParams(datainicio, datafim).subscribe((res: any) =>{
       fetch(res).then(res => res.blob()).then(res => window.open(URL.createObjectURL(res), '_blank'));
     })
   }

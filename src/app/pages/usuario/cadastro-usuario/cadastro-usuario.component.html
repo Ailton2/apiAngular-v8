@@ -60,7 +60,7 @@
         <div fxLayout="row">
           <mat-form-field appearance="outline">
             <mat-label>Telefone</mat-label>
-            <input matInput mask="(00) 00000-0000" type="text" [(ngModel)]="telefone.numero" name="numero" id="numero">
+            <input matInput mask="{{maskTel}}" type="text" [(ngModel)]="telefone.numero" name="numero" id="numero">
           </mat-form-field>
 
            <div class="btnAdd">
