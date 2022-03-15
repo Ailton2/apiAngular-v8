@@ -73,5 +73,12 @@ export class PesquisaUsuarioComponent implements OnInit {
       fetch(res).then(res => res.blob()).then(res => window.open(URL.createObjectURL(res), '_blank'));
     })
   }
+
+  visualizarRelUsuarioId(id: number) {
+    this.usuarioService.visualizarRelUsuarioId(id).subscribe((res: any) => {
+      fetch(res).then(res => res.blob()).then(res => window.open(URL.createObjectURL(res), '_blank'));
+
+    })
+  }
 }
 

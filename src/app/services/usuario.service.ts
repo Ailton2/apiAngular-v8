@@ -64,4 +64,8 @@ export class UsuarioService {
     }
   }
 
+  visualizarRelUsuarioId(id: number):Observable<any> {
+    return this.http.get(this.urlUsuario+`/relatorio/${id}`, { responseType: 'text'});
+  }
+
 }

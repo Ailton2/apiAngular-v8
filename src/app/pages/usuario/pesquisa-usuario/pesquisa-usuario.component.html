@@ -42,8 +42,15 @@
         <ng-container matColumnDef="symbol">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let element">
-                <button mat-raised-button (click)="deletaUsuario(element.id)">Excluir</button>
-                <button (click)="navigateEdit(element.id)"  mat-raised-button >Editar</button>
+                <button type="button" mat-icon-button (click)="deletaUsuario(element.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button type="button" (click)="navigateEdit(element.id)"  mat-icon-button >
+                  <mat-icon>mode_edit</mat-icon>
+                </button>
+                <button type="button" (click)="visualizarRelUsuarioId(element.id)"  mat-icon-button >
+                  <mat-icon>find_in_page</mat-icon>
+                </button>
             </mat-cell>
         </ng-container>
 
